@@ -1,7 +1,10 @@
-FROM python:3.10
+FROM tensorflow/tensorflow:latest-gpu
 
 # Install dependencies
 WORKDIR /app
+
+RUN python3 -m pip install --upgrade pip
+RUN pip install --ignore-installed blinker==1.7.0
 
 COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
