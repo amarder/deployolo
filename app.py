@@ -8,6 +8,7 @@ import tensorflow as tf
 from keras_cv import visualization
 import json
 from datetime import datetime
+import subprocess
 
 model = keras_cv.models.YOLOV8Detector(
     num_classes=20,
@@ -71,3 +72,9 @@ def upload_file():
       <input type=submit value=Upload>
     </form>
     '''
+
+@app.route('/nvidia-smi/')
+def list_files():
+    proc = subprocess.Popen(['nvidia-smi'], stdout=subprocess.PIPE)
+    stdout = proc.stdout.read().decode('utf-8')
+    return f'<pre>{stdout}</pre>'
