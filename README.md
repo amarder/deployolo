@@ -1,0 +1,1 @@
+1. Deploy [yolov8](https://www.kaggle.com/models/keras/yolov8)
