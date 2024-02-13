@@ -6,6 +6,9 @@ WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
+COPY download.py /app/download.py
+RUN python download.py
+
 # Copy the rest of the code
 COPY . /app
 
