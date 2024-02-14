@@ -1,13 +1,11 @@
-FROM tensorflow/tensorflow:2.11.0-gpu
+FROM tensorflow/tensorflow:latest-gpu
 
 # Install dependencies
-WORKDIR /app
-
 RUN python3 -m pip install --upgrade pip
-#RUN pip install --ignore-installed blinker==1.7.0
+RUN pip install --ignore-installed blinker
+RUN pip install keras-cv Flask
 
-COPY requirements.txt /app/requirements.txt
-RUN pip install -r requirements.txt
+WORKDIR /app
 
 COPY download.py /app/download.py
 RUN python download.py
