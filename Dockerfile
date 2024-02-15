@@ -1,12 +1,13 @@
 FROM tensorflow/tensorflow:latest-gpu
 
-# Install dependencies
-RUN python3 -m pip install --upgrade pip
-RUN pip install --ignore-installed blinker
-RUN pip install keras-cv Flask
-
 WORKDIR /app
 
+# Install dependencies
+RUN pip install --ignore-installed blinker==1.7.0
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+# Download the model
 COPY download.py /app/download.py
 RUN python download.py
 
@@ -14,4 +15,3 @@ RUN python download.py
 COPY . /app
 
 ENTRYPOINT [ "flask", "run", "--host", "0.0.0.0" ]
-# ENTRYPOINT [ "bash" ]

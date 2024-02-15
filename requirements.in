@@ -1,6 +1,3 @@
-tensorflow==2.9.2
-keras-cv==0.4.1
+tensorflow
+keras-cv
 Flask
-
-# matplotlib
-# opencv-python
