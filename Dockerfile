@@ -8,8 +8,8 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
 # Download the model
-COPY download.py /app/download.py
-RUN python download.py
+COPY main.py /app/main.py
+RUN python main.py
 
 # Copy the rest of the code
 COPY . /app
