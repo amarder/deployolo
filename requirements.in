@@ -1,3 +1,5 @@
 tensorflow
 keras-cv
-Flask
+fastapi
+uvicorn
+python-multipart

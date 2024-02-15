@@ -1,12 +1,4 @@
-import os
-from flask import Flask, flash, request, redirect, url_for
-from werkzeug.utils import secure_filename
 import keras_cv
-import tensorflow as tf
-from keras_cv import visualization
-import json
-from datetime import datetime
-import subprocess
 
 model = keras_cv.models.YOLOV8Detector(
     num_classes=20,
