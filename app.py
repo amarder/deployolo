@@ -74,7 +74,12 @@ def upload_file():
     '''
 
 @app.route('/nvidia-smi/')
-def list_files():
+def nvidia_smi():
     proc = subprocess.Popen(['nvidia-smi'], stdout=subprocess.PIPE)
     stdout = proc.stdout.read().decode('utf-8')
     return f'<pre>{stdout}</pre>'
+
+@app.route('/devices/')
+def devices():
+    devices = tf.config.list_physical_devices()
+    return f'<pre>{devices}</pre>'
