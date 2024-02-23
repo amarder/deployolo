@@ -49,3 +49,9 @@ Things to keep in mind:
 3.  These lines in the Dockerfile instantiate a `YOLOV8Detector` object, when we do this the first time the required models are downloaded from the internet. It's nice to put this in the Dockerfile so the model files are included in the docker image and don't need to be downloaded from the internet every time we spin up a copy of this image: https://github.com/amarder/deployolo/blob/main/Dockerfile#L10C25-L12
 
 Let me know if you have any questions.
+
+To run locally use:
+
+    docker compose up --build
+
+This will automatically reload the code when it changes.
